@@ -1,0 +1,16 @@
+[project]
+name = "cmeel-urdfdom-headers"
+version = "1.0.5"
+description = "cmeel distribution for urdfdom-headers, headers for URDF parsers"
+readme = "README.md"
+requires-python = ">= 3.8"
+license = "BSD-3-Clause"
+
+[project.urls]
+homepage = "https://github.com/cmake-wheel/cmeel-urdfdom-headers"
+
+[build-system]
+requires = ["cmeel[build]"]
+build-backend = "cmeel.build"
+source = "urdfdom_headers"
+run_tests = false
