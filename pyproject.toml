@@ -1,6 +1,6 @@
 [project]
 name = "cmeel-urdfdom-headers"
-version = "1.0.5"
+version = "1.1.0"
 description = "cmeel distribution for urdfdom-headers, headers for URDF parsers"
 readme = "README.md"
 requires-python = ">= 3.8"
