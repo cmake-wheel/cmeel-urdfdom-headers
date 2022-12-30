@@ -9,8 +9,10 @@ license = "BSD-3-Clause"
 [project.urls]
 homepage = "https://github.com/cmake-wheel/cmeel-urdfdom-headers"
 
+[tool.cmeel]
+source = "urdfdom_headers"
+run-tests = false
+
 [build-system]
 requires = ["cmeel[build]"]
 build-backend = "cmeel.build"
-source = "urdfdom_headers"
-run-tests = false
