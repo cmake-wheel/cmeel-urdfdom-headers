@@ -12,6 +12,7 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom-headers"
 [tool.cmeel]
 source = "urdfdom_headers"
 run-tests = false
+build-number = 1
 
 [build-system]
 requires = ["cmeel[build]"]
