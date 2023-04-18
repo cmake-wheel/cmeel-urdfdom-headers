@@ -2,7 +2,6 @@
 name = "cmeel-urdfdom-headers"
 version = "1.1.0"
 description = "cmeel distribution for urdfdom-headers, headers for URDF parsers"
-readme = "README.md"
 requires-python = ">= 3.7"
 license = "BSD-3-Clause"
 
