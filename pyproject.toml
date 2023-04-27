@@ -1,3 +1,7 @@
+[build-system]
+requires = ["cmeel[build]"]
+build-backend = "cmeel.build"
+
 [project]
 name = "cmeel-urdfdom-headers"
 version = "1.1.0"
@@ -12,7 +16,3 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom-headers"
 source = "urdfdom_headers"
 run-tests = false
 build-number = 3
-
-[build-system]
-requires = ["cmeel[build]"]
-build-backend = "cmeel.build"
