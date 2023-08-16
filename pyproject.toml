@@ -13,8 +13,9 @@ version = "1.1.0"
 homepage = "https://github.com/cmake-wheel/cmeel-urdfdom-headers"
 
 [tool.cmeel]
-any = true
 build-number = 4
+has-binaries = false
+has-sitelib = false
 run-tests = false
 source = "urdfdom_headers"
 
