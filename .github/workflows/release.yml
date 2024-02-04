@@ -73,6 +73,6 @@ jobs:
         with:
           skip-existing: true
       - run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-      - run: gh release create -t "Release ${{ env.TAG}}" "${{ env.TAG }}" artifact/*
+      - run: gh release create -t "Release ${{ env.TAG}}" "${{ env.TAG }}" dist/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
