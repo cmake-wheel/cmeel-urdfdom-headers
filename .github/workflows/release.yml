@@ -27,7 +27,8 @@ jobs:
       - run: python -m pip wheel -vw wh .
       - uses: actions/upload-artifact@v4
         with:
-          path: wh
+          name: "wheel"
+          path: wh/cmeel_urdfdom_headers*
 
   sdist:
     runs-on: ubuntu-latest
@@ -52,6 +53,10 @@ jobs:
     needs: ["wheel", "sdist"]
     if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -62,10 +67,12 @@ jobs:
           git verify-tag --raw ${{ github.ref_name }} 2>&1
           | grep -q 'VALIDSIG 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28'
       - uses: actions/download-artifact@v4
-      - run: pipx install twine
-      - run: twine upload -u __token__ -p "${{ secrets.PYPI_TOKEN }}" artifact/cmeel_urdfdom_headers*.whl
-      - run: twine upload -u __token__ -p "${{ secrets.PYPI_TOKEN }}" artifact/cmeel_urdfdom_headers*.tar.gz || true
+      - run: mkdir dist && mv artifact*/* dist
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
       - run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-      - run: gh release create -t "Release ${{ env.TAG}}" "${{ env.TAG }}" artifact/cmeel_urdfdom_headers*.{whl,tar.gz}
+      - run: gh release create -t "Release ${{ env.TAG}}" "${{ env.TAG }}" artifact/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
