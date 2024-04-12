@@ -14,7 +14,7 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom-headers"
 upstream = "https://github.com/ros/urdfdom_headers"
 
 [tool.cmeel]
-build-number = 3
+build-number = 4
 has-binaries = false
 has-sitelib = false
 run-tests = false
